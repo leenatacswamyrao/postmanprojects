@@ -1,0 +1,217 @@
+{
+  "info": {
+    "_postman_id": "6abec451-e6a7-44dc-96ef-3ed13da2b15e",
+    "name": "SOAP Test",
+    "description": "This collection is just a test to implement SOAP protocols",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53482473",
+    "_collection_link": "https://go.postman.co/collection/53482473-6abec451-e6a7-44dc-96ef-3ed13da2b15e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Addition",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "\"http://tempuri.org/Add\"",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <Add xmlns=\"http://tempuri.org/\">\r\n      <intA>5</intA>\r\n      <intB>10</intB>\r\n    </Add>\r\n  </soap:Body>\r\n</soap:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://www.dneonline.com/calculator.asmx",
+          "protocol": "http",
+          "host": [
+            "www",
+            "dneonline",
+            "com"
+          ],
+          "path": [
+            "calculator.asmx"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Subtraction",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "\"http://tempuri.org/Subtract\"",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <Subtract xmlns=\"http://tempuri.org/\">\r\n      <intA>100</intA>\r\n      <intB>10</intB>\r\n    </Subtract>\r\n  </soap:Body>\r\n</soap:Envelope>"
+        },
+        "url": {
+          "raw": "http://www.dneonline.com/calculator.asmx?",
+          "protocol": "http",
+          "host": [
+            "www",
+            "dneonline",
+            "com"
+          ],
+          "path": [
+            "calculator.asmx"
+          ],
+          "query": [
+            {
+              "key": "",
+              "value": null,
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Multiply",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "\"http://tempuri.org/Multiply\"",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <Multiply xmlns=\"http://tempuri.org/\">\r\n      <intA>7</intA>\r\n      <intB>9</intB>\r\n    </Multiply>\r\n  </soap:Body>\r\n</soap:Envelope>"
+        },
+        "url": {
+          "raw": "http://www.dneonline.com/calculator.asmx?",
+          "protocol": "http",
+          "host": [
+            "www",
+            "dneonline",
+            "com"
+          ],
+          "path": [
+            "calculator.asmx"
+          ],
+          "query": [
+            {
+              "key": "",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Divide",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "\"http://tempuri.org/Divide\"",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <Divide xmlns=\"http://tempuri.org/\">\r\n      <intA>150</intA>\r\n      <intB>9</intB>\r\n    </Divide>\r\n  </soap:Body>\r\n</soap:Envelope>"
+        },
+        "url": {
+          "raw": "http://www.dneonline.com/calculator.asmx?",
+          "protocol": "http",
+          "host": [
+            "www",
+            "dneonline",
+            "com"
+          ],
+          "path": [
+            "calculator.asmx"
+          ],
+          "query": [
+            {
+              "key": "",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "FaultTest",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "\"http://tempuri.org/Add\"",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n<soap:Body>\r\n\r\n    </soap:Body>\r\n</soap:Envelope>"
+        },
+        "url": {
+          "raw": "http://www.dneonline.com/calculator.asmx?",
+          "protocol": "http",
+          "host": [
+            "www",
+            "dneonline",
+            "com"
+          ],
+          "path": [
+            "calculator.asmx"
+          ],
+          "query": [
+            {
+              "key": "",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
