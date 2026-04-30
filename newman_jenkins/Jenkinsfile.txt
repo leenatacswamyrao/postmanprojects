@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+
+    // This ensures Node.js is available on the Jenkins server
+    tools {
+        nodejs 'node' // Note: This name must match what is configured in Jenkins. 'node' or 'NodeJS' are common defaults.
+    }
+
+    stages {
+        stage('Setup') {
+            steps {
+                echo 'Installing Newman...'
+                // Install Newman locally in the workspace to avoid permission issues
+                sh 'npm install newman'
+            }
+        }
+
+        stage('API Testing') {
+            steps {
+                echo 'Running Postman Collection via Newman...'
+                // Replace 'my_collection.json' with your actual filename
+                // We use the junit reporter so Jenkins can display a nice graph of results
+                sh './node_modules/.bin/newman run ./tests/my_collection.json --reporters cli,junit --reporter-junit-export results.xml'
+            }
+        }
+    }
+
+    post {
+        always {
+            // This tells Jenkins to look for the results.xml and show pass/fail stats
+            junit 'results.xml'
+            
+            // Cleanup: remove the local node_modules to keep the workspace clean
+            deleteDir()
+        }
+    }
+}
